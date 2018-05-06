@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .radialProgressBar {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            background: #ddd;
+            margin: 20px;
+        }
+
+        .radialProgressBar .overlay {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            margin: auto;
+            background: #fff;
+            text-align: center;
+            padding-top: 30%;
+        }
+
+        .progress-wrap {
+            height: 20px;
+            background-color: green;
+            width: 300px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .progress {
+            cursor: pointer;
+            height: 7px;
+            margin: 0 auto;
+            border-radius: 3px;
+            background-image: linear-gradient(90deg, red 0%,orange 0%);
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .control {
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #ddd;
+            height: 12px;
+            width: 12px;
+            border: 1px solid #ddd;
+            -webkit-border-radius:50%;
+            -moz-border-radius:50%;
+            -ms-border-radius:50%;
+            -o-border-radius:50%;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .control::after {
+            content: '';
+            display: inline-block;
+            height: 1px;
+            width: 1px;
+            background-color: red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="radialProgressBar progress-0" id="progress">
+        <div class="overlay">0</div>
+    </div>
+
+    <div>
+        <audio id="play" src="http://mpge.5nd.com/2018/2018-5-2/74521/1.mp3" controls></audio>
+        <button type="button" onclick="start()">Play</button>
+    </div>
+    <div>
+        <div class="progress-wrap" id="progressmodel">
+            <div class="progress" id="ProgressBar"></div>
+            <div class="control" id="Control"></div>
+        </div>
+    </div>
+    <script src="./progressbar.js"></script>
+</body>
+
+</html>
